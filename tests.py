@@ -1,5 +1,6 @@
 import unittest
 from scraper import Scraper
+from alert import Alert
 
 class ScraperTest(unittest.TestCase):
 	
@@ -10,6 +11,16 @@ class ScraperTest(unittest.TestCase):
 		
 	def testResponse(self):
 		self.assertEqual(self.response.status_code, 200)
+		
+
+class AlertTest(unittest.TestCase):
+	
+	def setUp(self):
+		self.new_alert = Alert()
+		self.new_alert.name = 'alert1'
+		
+	def testAlert(self):
+		self.assertEqual(self.new_alert.name, 'alert1')
 		
 
 if __name__ == '__main__':

@@ -9,6 +9,6 @@ print("Enter a command to get health travel advisories")
 print("Type 'help' to get a list of commands")
 
 scraper = Scraper('https://wwwnc.cdc.gov/travel/notices')
-print(scraper.get_content())
+print(scraper.setSectionObject())
 
 
