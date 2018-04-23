@@ -7,4 +7,4 @@ class Scraper():
 	
 	def get_content(self):
 			html = get(self.url, stream=True)
-			return html.text
+			return html
