@@ -1,0 +1,7 @@
+cli.py
+CdcNotices.egg-info/PKG-INFO
+CdcNotices.egg-info/SOURCES.txt
+CdcNotices.egg-info/dependency_links.txt
+CdcNotices.egg-info/entry_points.txt
+CdcNotices.egg-info/requires.txt
+CdcNotices.egg-info/top_level.txt
