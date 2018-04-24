@@ -16,11 +16,10 @@ class ScraperTest(unittest.TestCase):
 class AlertTest(unittest.TestCase):
 	
 	def setUp(self):
-		self.new_alert = Alert()
-		self.new_alert.name = 'alert1'
+		self.new_alert = Alert('alert1', 'summary1', 'readme1')
 		
 	def testAlert(self):
-		self.assertEqual(self.new_alert.name, 'alert1')
+		self.assertEqual(self.new_alert.title, 'alert1')
 		
 
 if __name__ == '__main__':

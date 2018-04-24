@@ -1,4 +1,5 @@
-from requests import get 
+from requests import get
+from bs4 import BeautifulSoup
 import pdb 
 class Scraper():
 	
@@ -11,4 +12,11 @@ class Scraper():
 			
 	def setSectionObject(self):
 		content = self.get_content().text
-		
+		self.bs4Content = BeautifulSoup(content, 'html.parser')
+
+
+
+#BeautifulSoup
+ #soup = BeautifulSoup(htmltext, parser)
+ #soup.find(id='alert')
+ 
