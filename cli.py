@@ -3,6 +3,7 @@ from scraper import Scraper
 from notice import Notice
 from requests.exceptions import RequestException 
 from contextlib import closing 
+import webbrowser
 from bs4 import BeautifulSoup
 
 class Cli():
@@ -31,6 +32,9 @@ class Cli():
 				self.help()
 			elif user_command == 'all':
 				self.all_notices()
+			elif user_command == 'readmore':
+				read_notice = input("Type the number of the notice from the list of 'all notices'.")
+				self.readmore(read_notice)
 			elif user_command == 'exit':
 				print("Goodbye")
 				break
@@ -38,7 +42,7 @@ class Cli():
 				user_command = input("Enter the a command to get health travel advisories.\nType help for a list of commands.\n>")
 
 	def get_alerts(self):
-		Notices.choose_notice("alert")
+		Notice.choose_notice("alert")
 	
 	def get_warnings(self):
 		Notice.choose_notice("warn")
@@ -47,8 +51,15 @@ class Cli():
 		Notice.choose_notice("watch")
 	
 	def all_notices(self):
-		Notice.choose_notice('all')
-	
+		Notice.all_notices()
+		
+	def readmore(self, notice_number):
+		base = 'https://wwwnc.cdc.gov/travel/notices/'
+		notice = Notice.notices[int(notice_number) - 1]
+		notice_url = notice.title.replace(' ', '-').lower()
+		url = f"{base}{notice.notice_type}/{notice_url}"
+		webbrowser.open(url)
+		
 	def help(self):
 		print("*****************************")
 		print("all: Display all notices")

@@ -1,3 +1,5 @@
+import pdb
+
 class Notice():
 	notices = []
 	
@@ -19,24 +21,28 @@ class Notice():
 	
 	@classmethod
 	def all_notices(self):
-		return self.notices
+		index = 1
+		for notice in self.notices:
+			print(f"{index}.")
+			print(notice.date)
+			print(notice.title)
+			print(notice.description)
+			print(notice.readme_link)
+			print(notice.notice_type)
+			print("***********************")
+			index += 1
 		
 	@classmethod
 	def choose_notice(self, notice_type):
-		for notice in Notice.all_notices():
+		index = 1
+		for notice in self.notices:
 			if notice.notice_type == notice_type:
+				print(f"{index}.")
 				print(notice.date)
 				print(notice.title)
 				print(notice.description)
 				print(notice.readme_link)
+				print(notice.notice_type)
 				print("***********************")
-			else:
-				print(notice.date)
-				print(notice.title)
-				print(notice.description)
-				print(notice.readme_link)
-				print("***********************")
-
-	
-	
-		
+				index += 1
+				
