@@ -20,6 +20,23 @@ class Notice():
 	@classmethod
 	def all_notices(self):
 		return self.notices
+		
+	@classmethod
+	def choose_notice(self, notice_type):
+		for notice in Notice.all_notices():
+			if notice.notice_type == notice_type:
+				print(notice.date)
+				print(notice.title)
+				print(notice.description)
+				print(notice.readme_link)
+				print("***********************")
+			else:
+				print(notice.date)
+				print(notice.title)
+				print(notice.description)
+				print(notice.readme_link)
+				print("***********************")
+
 	
 	
 		
