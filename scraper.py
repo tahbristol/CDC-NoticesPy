@@ -1,6 +1,6 @@
 from requests import get
 from bs4 import BeautifulSoup
-from alert import Alert
+from notice import Notice
 import pdb #pdb.set_trace()
 class Scraper():
 	
@@ -12,11 +12,11 @@ class Scraper():
 		return html
 			
 	def setSectionObject(self):
+		notice_types = ["alert", "warn", "watch"]
 		content = self.get_content().text
 		self.bs4_content = BeautifulSoup(content, 'html.parser')
-		self.get_alerts(self.bs4_content)
-		#self.get_watches(self.bs4_content)
-		#self.get_warnings(self.bs4_content)
+		for notice_type in notice_types:
+			self.get_notice(self.bs4_content, notice_type)
 	
 	def get_alerts(self, content):
 		array = []
@@ -27,35 +27,18 @@ class Scraper():
 				if alert != '\n':
 					description, link, date = self.parse_content(alert)
 					new_alert = Alert(description, link)
-					new_alert.save_alert()
-					
-	def get_watches(self, content):
-		watches = content.find(id="watches")
-		if watches and len(watches):
-			watches = watches.find(class_="list-block").children
-			for watch in watches:
-				if alert != '\n':
-					description, link, date = self.parse_content(watch)
-			print("Watches----------")
-			print(description)
-			print('-------------------')
-			print(link)
-			print('-------------------')
-			print(date)
+					new_alert.save()
 			
-	def get_warnings(self, content):
-		warnings = content.find(id="warn")
-		if warnings and len(warnings):
-			warnings = warnings.find(class_="list-block").children
-			for warn in warnings:
-				if alert != '\n':
-					description, link, date = self.parse_content(warn)
-			print("Warnings------------")
-			print(description)
-			print('-------------------')
-			print(link)
-			print('-------------------')
-			print(date)
+	def get_notice(self, content, notice_type):
+		class_name = notice_type.capitalize()	
+		notices = content.find(id=notice_type)
+		if notices and len(notices):
+			notices = notices.find(class_="list-block").children
+			for notice in notices:
+				if notice != '\n':
+					description, link, date = self.parse_content(notice)
+					new_notice = Notice(notice_type, description, link, date)
+					new_notice.save_notice()
 			
 	def parse_content(self, section):
 		description,link,readme = section.find_all('a')
