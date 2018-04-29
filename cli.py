@@ -12,7 +12,6 @@ class Cli():
 		print("Enter a command to get health travel advisories")
 		print("Type 'help' to get a list of commands")
 		
-		
 		scraper = Scraper('https://wwwnc.cdc.gov/travel/notices')
 		scraper.get_content()
 		scraper.setSectionObject()
