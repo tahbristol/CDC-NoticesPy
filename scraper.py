@@ -1,7 +1,7 @@
 from requests import get
 from bs4 import BeautifulSoup
 from notice import Notice
-import pdb #pdb.set_trace()
+
 class Scraper():
 	
 	def __init__(self,url):

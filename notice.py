@@ -1,5 +1,3 @@
-import pdb
-
 class Notice():
 	notices = []
 	
