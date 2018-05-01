@@ -27,8 +27,6 @@ class Notice():
 			print(notice.date)
 			print(notice.title)
 			print(notice.description)
-			print(notice.readme_link)
-			print(notice.notice_type)
 			print("***********************")
 			index += 1
 		
@@ -41,8 +39,6 @@ class Notice():
 				print(notice.date)
 				print(notice.title)
 				print(notice.description)
-				print(notice.readme_link)
-				print(notice.notice_type)
 				print("***********************")
 				index += 1
 				

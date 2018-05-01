@@ -1,4 +1,3 @@
-import click 
 from scraper import Scraper
 from notice import Notice
 from requests.exceptions import RequestException 
@@ -65,7 +64,7 @@ class Cli():
 		print("alerts: Display alerts only.")
 		print("warnings: Display warnings only.")
 		print("watches: Display watches only.")
-		print("readmore: open readmore in browser. 'readmore' press enter then enter the number corresponding to the notice you want")
+		print("readmore: Open readmore in browser. 'readmore' press enter then enter the number corresponding to the notice you want")
 		print("exit: exit the application")
 		print("******************************")
 
