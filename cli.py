@@ -40,20 +40,20 @@ class Cli():
 				user_command = input("Enter the a command to get health travel advisories.\nType help for a list of commands.\n>")
 
 	def get_alerts(self):
-		Notice.choose_notice("alert")
+		Notice.choose_notice(Notice.alert_notices)
 	
 	def get_warnings(self):
-		Notice.choose_notice("warn")
+		Notice.choose_notice(Notice.warn_notices)
 	
 	def get_watches(self):
-		Notice.choose_notice("watch")
+		Notice.choose_notice(Notice.watch_notices)
 	
 	def all_notices(self):
-		Notice.all_notices()
+		Notice.show_all_notices()
 		
 	def readmore(self, notice_number):
 		base = 'https://wwwnc.cdc.gov/travel/notices/'
-		notice = Notice.notices[int(notice_number) - 1]
+		notice = Notice.all_notices[int(notice_number) - 1]
 		notice_url = notice.title.replace(' ', '-').lower()
 		url = f"{base}{notice.notice_type}/{notice_url}"
 		webbrowser.open(url)
