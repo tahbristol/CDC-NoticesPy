@@ -11,5 +11,7 @@ Installation:
   2. Navigate to the repo's directory in your terminal.
   3. Run `python runNotices` to start the application.
   
+Notes:
+  Confirm that when you use the command `python` that it is running python 3.6
   
  Thanks!
